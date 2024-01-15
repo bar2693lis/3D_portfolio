@@ -24,37 +24,22 @@ const Computers = ({ isMobile }) => {
 };
 
 const ComputersCanvas = () => {
-  // const [isMobile, setIsMobile] = useState(false); // Check if the user is on mobile
-
-  const [isMobile, setIsMobile] = useState(window.innerWidth <= 500);
-
-  const handleWindowSizeChange = () => {
-    setIsMobile(window.innerWidth <= 500);
-  };
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
-    window.addEventListener("resize", handleWindowSizeChange);
+    const mobileMediaQuery = window.matchMedia("(max-width: 767px)"); // Adjust the breakpoint as needed
+
+    const handleMobileChange = (event) => {
+      setIsMobile(event.matches);
+    };
+
+    mobileMediaQuery.addEventListener("change", handleMobileChange);
+    setIsMobile(mobileMediaQuery.matches);
+
     return () => {
-      window.removeEventListener("resize", handleWindowSizeChange);
+      mobileMediaQuery.removeEventListener("change", handleMobileChange);
     };
   }, []);
-
-  // useEffect(() => {
-  //   const mediaQuery = window.matchMedia("(max-width: 500px)"); // Add a listener for changes in screen size
-
-  //   setIsMobile(mediaQuery.matches); // Set the state to true if the screen is smaller than 500px
-
-  //   const handleMediaQueryChange = (e) => {
-  //     // Function to handle changes in screen size
-  //     setIsMobile(e.matches); // Set the state to true if the screen is smaller than 500px
-  //   };
-
-  //   mediaQuery.addEventListener("change", handleMediaQueryChange); // Add event listener to the media query to check if the screen size changes
-
-  //   return () => {
-  //     mediaQuery.removeEventListener("change", handleMediaQueryChange); // Remove event listener when component unmounts
-  //   };
-  // }, []);
 
   return (
     <Canvas
