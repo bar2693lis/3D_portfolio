@@ -16,7 +16,7 @@ const Computers = ({ isMobile }) => {
       <primitive
         object={computer.scene} // Add the model to the scene
         scale={isMobile ? 9 : 15} // Increase the size of the model
-        position={isMobile ? [0, -0.8, 0] : [0, -2.8, 0]} // Move the model to the center of the scene
+        position={isMobile ? [0, -1.6, 0] : [0, -2.8, 0]} // Move the model to the center of the scene
         rotation={[0, 2.85, 0]} // Rotate the model
       />
     </mesh>
