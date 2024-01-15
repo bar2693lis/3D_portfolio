@@ -49,6 +49,8 @@ const ComputersCanvas = () => {
       shadows // Enable shadow rendering
       camera={{ position: [20, 3, 5], fov: 25 }} // Set camera position and field of view
       gl={{ preserveDrawingBuffer: true }} // Enable image capture
+      alpha={true} // Enable transparency
+      android={true} // Render on Android browser
     >
       {/* Show loader while model is loading */}
       <Suspense fallback={<CanvasLoader />}>
