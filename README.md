@@ -5,6 +5,11 @@
   </div>
 </div>
 
+## Getting Started
+
+Visit the website: https://barlis.netlify.app/
+
+
 
 
 
