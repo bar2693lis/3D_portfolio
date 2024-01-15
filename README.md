@@ -20,10 +20,15 @@
 The website includes several sections:
 
 👉 **Hero**: Features an immersive 3D desktop model.
+
 👉 **About**: Provides a brief overview about me.
+
 👉 **Experience**: Presents a timeline of my professional journey.
+
 👉 **Works**: Showcases my notable projects.
+
 👉 **Tech:** Lists the technologies.
+
 👉 **Contact**: A form for visitors to send messages to my via email.
 
 ## <a name="quick-start">🤸 Quick Start</a>
