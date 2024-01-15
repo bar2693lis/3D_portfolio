@@ -31,8 +31,8 @@ const Contact = () => {
 
     emailjs
       .send(
-        process.env.VITE_EMAIL_JS_SERVICE,
-        process.env.VITE_EMAIL_JS_TEMPLATE,
+        import.meta.env.VITE_EMAIL_JS_SERVICE,
+        import.meta.env.VITE_EMAIL_JS_TEMPLATE,
         {
           from_name: form.name,
           to_name: "Bar",
@@ -40,7 +40,7 @@ const Contact = () => {
           to_email: "barlis2693@gmail.com",
           message: form.message,
         },
-        process.env.VITE_EMAIL_JS_API_KEY
+        import.meta.env.VITE_EMAIL_JS_API_KEY
       )
       .then(
         () => {
@@ -110,9 +110,7 @@ const Contact = () => {
             />
           </div>
         </div>
-        <p className={styles.sectionSubText}>test:</p>
-        <p className={styles.sectionSubText}>1: {process.env.VITE_EMAIL_JS_API_KEY}</p>
-        <p className={styles.sectionSubText}>2: {import.meta.env.VITE_EMAIL_JS_SERVICE}</p>
+
         <form
           ref={formRef}
           onSubmit={handleSubmit}
