@@ -71,7 +71,7 @@ const Contact = () => {
         <p className={styles.sectionSubText}>Get in touch</p>
         <h3 className={styles.sectionHeadText}>Contact.</h3>
 
-        <p className={styles.sectionSubText}>via:</p>
+        <p className={styles.sectionSubText}>via</p>
         <div className="flex flex-row flex-wrap justify-start gap-5 py-1">
           <div
             onClick={() => window.open("https://wa.me/972532419404", "blank")}
@@ -110,7 +110,9 @@ const Contact = () => {
             />
           </div>
         </div>
-
+        <p className={styles.sectionSubText}>test:</p>
+        <p className={styles.sectionSubText}>{process.env.VITE_EMAIL_JS_API_KEY}</p>
+        <p className={styles.sectionSubText}>{import.meta.env.VITE_EMAIL_JS_SERVICE}</p>
         <form
           ref={formRef}
           onSubmit={handleSubmit}
