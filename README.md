@@ -46,8 +46,8 @@ Make sure you have the following installed on your machine:
 **Cloning the Repository**
 
 ```bash
-git clone git@github.com:adrianhajdin/project_3D_developer_portfolio.git
-cd project_3D_developer_portfolio
+git clone https://github.com/bar2693lis/3D_portfolio.git
+cd 3D_portfolio
 ```
 
 **Installation**
@@ -63,9 +63,9 @@ npm install
 Create a new file named `.env` in the root of your project and add the following content:
 
 ```env
-REACT_APP_EMAILJS_USERID=your_emailjs_user_id
-REACT_APP_EMAILJS_TEMPLATEID=your_emailjs_template_id
-REACT_APP_EMAILJS_RECEIVERID=your_emailjs_receiver_id
+VITE_EMAIL_JS_API_KEY=your_emailjs_pub_key
+VITE_EMAIL_JS_TEMPLATE=your_emailjs_template_id
+VITE_EMAIL_JS_SERVICE=your_emailjs_service_id
 ```
 
 Replace the placeholder values with your actual EmailJS credentials. You can obtain these credentials by signing up on the [EmailJS website](https://www.emailjs.com/).
