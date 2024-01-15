@@ -3,7 +3,40 @@ import { motion } from "framer-motion";
 import { styles } from "../styles";
 import { ComputersCanvas } from "./canvas";
 
+import { useState, useEffect } from "react";
+
 const Hero = () => {
+  // const [isMobile, setIsMobile] = useState(false); // Check if the user is on mobile
+
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 500);
+
+  const handleWindowSizeChange = () => {
+    setIsMobile(window.innerWidth <= 500);
+  };
+
+  useEffect(() => {
+    window.addEventListener("resize", handleWindowSizeChange);
+    return () => {
+      window.removeEventListener("resize", handleWindowSizeChange);
+    };
+  }, []);
+
+  // useEffect(() => {
+  //   const mediaQuery = window.matchMedia("(max-width: 500px)"); // Add a listener for changes in screen size
+
+  //   setIsMobile(mediaQuery.matches); // Set the state to true if the screen is smaller than 500px
+
+  //   const handleMediaQueryChange = (e) => {
+  //     // Function to handle changes in screen size
+  //     setIsMobile(e.matches); // Set the state to true if the screen is smaller than 500px
+  //   };
+
+  //   mediaQuery.addEventListener("change", handleMediaQueryChange); // Add event listener to the media query to check if the screen size changes
+
+  //   return () => {
+  //     mediaQuery.removeEventListener("change", handleMediaQueryChange); // Remove event listener when component unmounts
+  //   };
+  // }, []);
   return (
     <section className=" relative w-full h-screen mx-auto">
       <div
@@ -34,6 +67,7 @@ const Hero = () => {
 
       <div className=" absolute xs:bottom-6 bottom-32 w-full flex justify-center items-center">
         {/* This is the link to the about section */}
+        <p>{`isMobile: ${isMobile}`}</p>
         <a href="#about">
           <div className="w-[35px] h-[64px] rounded-3xl border-4 border-[#4191b3] flex justify-center items-start p-2">
             <motion.div // This is the animated "arrow" on the bottom of the hero section
