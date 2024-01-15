@@ -23,24 +23,7 @@ const Computers = ({ isMobile }) => {
   );
 };
 
-const ComputersCanvas = () => {
-  const [isMobile, setIsMobile] = useState(false);
-
-  useEffect(() => {
-    const mobileMediaQuery = window.matchMedia("(max-width: 767px)"); // Adjust the breakpoint as needed
-
-    const handleMobileChange = (event) => {
-      setIsMobile(event.matches);
-    };
-
-    mobileMediaQuery.addEventListener("change", handleMobileChange);
-    setIsMobile(mobileMediaQuery.matches);
-
-    return () => {
-      mobileMediaQuery.removeEventListener("change", handleMobileChange);
-    };
-  }, []);
-
+const ComputersCanvas = ({ isMobile }) => {
   return (
     <Canvas
       frameloop="demand" // Only render on browser tab focus

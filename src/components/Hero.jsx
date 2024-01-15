@@ -6,6 +6,23 @@ import { ComputersCanvas } from "./canvas";
 import { useState, useEffect } from "react";
 
 const Hero = () => {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const mobileMediaQuery = window.matchMedia("(max-width: 767px)"); // Adjust the breakpoint as needed
+
+    const handleMobileChange = (event) => {
+      setIsMobile(event.matches);
+    };
+
+    mobileMediaQuery.addEventListener("change", handleMobileChange);
+    setIsMobile(mobileMediaQuery.matches);
+
+    return () => {
+      mobileMediaQuery.removeEventListener("change", handleMobileChange);
+    };
+  }, []);
+
   return (
     <section className=" relative w-full h-screen mx-auto">
       <div
@@ -32,7 +49,7 @@ const Hero = () => {
         </div>
       </div>
 
-      <ComputersCanvas />
+      <ComputersCanvas isMobile={isMobile} />
 
       <div className=" absolute xs:bottom-6 bottom-32 w-full flex justify-center items-center">
         {/* This is the link to the about section */}
