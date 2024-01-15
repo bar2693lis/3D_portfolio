@@ -35,6 +35,29 @@ const Hero = () => {
     };
   }, []);
 
+  const [isMobile3, setIsMobile3] = useState(false);
+
+  useEffect(() => {
+    // Add a listener for changes to the screen size
+    const mediaQuery = window.matchMedia("(max-width: 500px)");
+
+    // Set the initial value of the `isMobile` state variable
+    setIsMobile3(mediaQuery.matches);
+
+    // Define a callback function to handle changes to the media query
+    const handleMediaQueryChange = (event) => {
+      setIsMobile3(event.matches);
+    };
+
+    // Add the callback function as a listener for changes to the media query
+    mediaQuery.addEventListener("change", handleMediaQueryChange);
+
+    // Remove the listener when the component is unmounted
+    return () => {
+      mediaQuery.removeEventListener("change", handleMediaQueryChange);
+    };
+  }, []);
+
   return (
     <section className=" relative w-full h-screen mx-auto">
       <div
@@ -67,6 +90,7 @@ const Hero = () => {
         {/* This is the link to the about section */}
         <p>{`isMobile: ${isMobile}`}</p>
         <p>{`--isMobile2: ${isMobile2}`}</p>
+        <p>{`--isMobile2: ${isMobile3}`}</p>
         <a href="#about">
           <div className="w-[35px] h-[64px] rounded-3xl border-4 border-[#4191b3] flex justify-center items-start p-2">
             <motion.div // This is the animated "arrow" on the bottom of the hero section
