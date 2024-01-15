@@ -1,4 +1,4 @@
-import { Suspense, useEffect, useState } from "react";
+import { Suspense } from "react";
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls, Preload, useGLTF } from "@react-three/drei";
 
@@ -10,6 +10,15 @@ const Computers = ({ isMobile }) => {
     <mesh>
       {/* Add a light source to the scene */}
       <hemisphereLight intensity={10} groundColor="black" />
+      {/* Add a spotlight to the scene */}
+      <spotLight
+        position={[-20, 50, 10]}
+        angle={0.12}
+        penumbra={1}
+        intensity={1}
+        castShadow
+        shadow-mapSize={1024}
+      />
       {/* Add a point light source */}
       <pointLight intensity={20} />
       {/* Add the model to the scene */}
@@ -28,6 +37,7 @@ const ComputersCanvas = ({ isMobile }) => {
     <Canvas
       frameloop="demand" // Only render on browser tab focus
       shadows // Enable shadow rendering
+      dpr={[1, 2]} // Set pixel density for better performance
       camera={{ position: [20, 3, 5], fov: 25 }} // Set camera position and field of view
       gl={{ preserveDrawingBuffer: true }} // Enable image capture
       alpha={true} // Enable transparency
