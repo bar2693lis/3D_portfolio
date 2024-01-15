@@ -5,6 +5,10 @@
   </div>
 </div>
 
+
+![portfolio](https://github.com/bar2693lis/3D_portfolio/assets/48059962/a6a5360a-17e0-4c44-9f71-fb7e931477a6)
+
+
 ## <a name="tech-stack">⚙️ Tech Stack</a>
 
 - React.js
