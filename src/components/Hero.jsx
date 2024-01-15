@@ -53,6 +53,7 @@ const Hero = () => {
 
       <div className=" absolute xs:bottom-6 bottom-32 w-full flex justify-center items-center">
         {/* This is the link to the about section */}
+        <p>{`isMobile ${isMobile}`}</p>
         <a href="#about">
           <div className="w-[35px] h-[64px] rounded-3xl border-4 border-[#4191b3] flex justify-center items-start p-2">
             <motion.div // This is the animated "arrow" on the bottom of the hero section
