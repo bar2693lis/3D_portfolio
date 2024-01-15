@@ -8,16 +8,20 @@ import { useState, useEffect } from "react";
 const Hero = () => {
   // const [isMobile, setIsMobile] = useState(false); // Check if the user is on mobile
 
-  const [isMobile, setIsMobile] = useState(window.innerWidth <= 500);
-
-  const handleWindowSizeChange = () => {
-    setIsMobile(window.innerWidth <= 500);
-  };
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
-    window.addEventListener("resize", handleWindowSizeChange);
+    const mobileMediaQuery = window.matchMedia("(max-width: 767px)"); // Adjust the breakpoint as needed
+
+    const handleMobileChange = (event) => {
+      setIsMobile(event.matches);
+    };
+
+    mobileMediaQuery.addEventListener("change", handleMobileChange);
+    setIsMobile(mobileMediaQuery.matches);
+
     return () => {
-      window.removeEventListener("resize", handleWindowSizeChange);
+      mobileMediaQuery.removeEventListener("change", handleMobileChange);
     };
   }, []);
 
