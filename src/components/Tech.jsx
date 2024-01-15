@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Tilt } from "react-tilt";
 import { motion } from "framer-motion";
 
@@ -7,18 +7,37 @@ import { technologies } from "../constants";
 import { fadeIn, textVariant } from "../utils/motion";
 
 const ServiceCard = ({ index, name, icon }) => {
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 500);
+
+  const handleWindowSizeChange = () => {
+    setIsMobile(window.innerWidth <= 500);
+  };
+
+  useEffect(() => {
+    window.addEventListener("resize", handleWindowSizeChange);
+    return () => {
+      window.removeEventListener("resize", handleWindowSizeChange);
+    };
+  }, []);
   return (
-    <Tilt className="xs:w-[170px] w-10">
+    <Tilt className="xs:w-[170px] w-30">
       <motion.div
         variants={fadeIn("right", "spring", index * 0.5, 0.75)}
         className="w-full blue-green-gradient p-[1px] rounded-full shadow-card"
       >
         <div
           options={{ max: 45, scale: 1, speed: 10 }}
-          className="bg-tertiary rounded-full py-9 px-5 flex justify-evenly items-center flex-col"
+          className={`bg-tertiary rounded-full ${
+            isMobile ? "py-7" : "py-9"
+          } px-5 flex justify-evenly items-center flex-col`}
         >
           <img src={icon} alt={name} className="w-16 h-16 object-contain" />
-          <h3 className=" text-white text-[20x] font-bold text-center">
+
+          <h3
+            className={` text-white ${
+              isMobile ? "text-[14px]" : "text-[18px]"
+            } font-bold text-center`}
+          >
             {name}
           </h3>
         </div>
