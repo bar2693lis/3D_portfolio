@@ -11,13 +11,27 @@ import { whatsapp, phone, sms } from "../assets";
 
 const Contact = () => {
   const formRef = useRef();
+
   const [form, setForm] = useState({
     name: "",
     email: "",
     message: "",
   });
+
   const [loading, setLoading] = useState(false);
-  const isMobile = window.innerWidth <= 768;
+
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 500);
+
+  const handleWindowSizeChange = () => {
+    setIsMobile(window.innerWidth <= 500);
+  };
+
+  useEffect(() => {
+    window.addEventListener("resize", handleWindowSizeChange);
+    return () => {
+      window.removeEventListener("resize", handleWindowSizeChange);
+    };
+  }, []);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
