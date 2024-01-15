@@ -106,11 +106,10 @@ const technologies = [
     name: "Next JS",
     icon: nextjs,
   },
-  // Lack of limitation I comment this -> Too many active WebGL contexts. Oldest context will be lost.
-  // {
-  //   name: "Three JS",
-  //   icon: threejs,
-  // },
+  {
+    name: "Three JS",
+    icon: threejs,
+  },
   {
     name: "MongoDB",
     icon: mongodb,
@@ -119,11 +118,10 @@ const technologies = [
     name: "git",
     icon: git,
   },
-  // Lack of limitation I comment this -> Too many active WebGL contexts. Oldest context will be lost.
-  // {
-  //   name: "docker",
-  //   icon: docker,
-  // },
+  {
+    name: "docker",
+    icon: docker,
+  },
 ];
 
 const experiences = [

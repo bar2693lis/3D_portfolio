@@ -31,7 +31,11 @@ const Stars = (props) => {
 const StarsCanvas = () => {
   return (
     <div className="w-full h-auto absolute inset-0 z-[-1]">
-      <Canvas camera={{ position: [0, 0, 1] }}>
+      <Canvas
+        camera={{ position: [0, 0, 1] }}
+        alpha="true" // Enable transparency
+        android="true" // Render on Android browser
+      >
         <Suspense fallback={null}>
           <Stars />
         </Suspense>

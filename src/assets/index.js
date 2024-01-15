@@ -1,4 +1,3 @@
-// import logo from "./logo.svg";
 import logo from "./logo.png";
 
 import backend from "./backend.png";
@@ -10,10 +9,8 @@ import whatsapp from "./whatsapp.png";
 import phone from "./phone.png";
 import sms from "./sms.png";
 
-// import menu from "./menu.svg";
 import menu from "./menu.png";
 
-// import close from "./close.svg";
 import close from "./close.png";
 
 import css from "./tech/css.png";

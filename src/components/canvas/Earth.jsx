@@ -16,9 +16,11 @@ const EarthCanvas = () => {
     <Canvas
       shadows
       frameloop="demand"
-      dpr={[1, 2]}
+      dpr={[1, 2]} // Adjust quality based on device pixel ratio
       gl={{ preserveDrawingBuffer: true }}
       camera={{ fov: 52, near: 0.1, far: 200, position: [-4, 3, 6] }}
+      alpha="true" // Enable transparency
+      android="true" // Render on Android browser
     >
       <Suspense fallback={<CanvasLoader />}>
         <OrbitControls

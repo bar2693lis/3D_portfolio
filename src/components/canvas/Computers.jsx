@@ -5,19 +5,19 @@ import { OrbitControls, Preload, useGLTF } from "@react-three/drei";
 import CanvasLoader from "../Loader";
 
 const Computers = ({ isMobile }) => {
-  const computer = useGLTF("./desktop_pc/scene.gltf"); // Load the model
+  const computer = useGLTF("./macbook_pro/scene.gltf"); // Load the model
   return (
     <mesh>
       {/* Add a light source to the scene */}
-      <hemisphereLight intensity={3} groundColor="black" />
+      <hemisphereLight intensity={10} groundColor="black" />
       {/* Add a point light source */}
-      <pointLight intensity={5} />
+      <pointLight intensity={20} />
       {/* Add the model to the scene */}
       <primitive
         object={computer.scene} // Add the model to the scene
-        scale={isMobile ? 0.6 : 0.75} // Increase the size of the model
-        position={isMobile ? [0, -2, -1.9] : [0, -2.85, -1.3]} // Move the model to the center of the scene
-        rotation={[-0.01, -0.2, -0.1]} // Rotate the model
+        scale={isMobile ? 9 : 15} // Increase the size of the model
+        position={isMobile ? [0, -1.5, 0] : [0, -2.8, 0]} // Move the model to the center of the scene
+        rotation={[0, 2.85, 0]} // Rotate the model
       />
     </mesh>
   );
@@ -55,6 +55,7 @@ const ComputersCanvas = () => {
       {/* Show loader while model is loading */}
       <Suspense fallback={<CanvasLoader />}>
         <OrbitControls
+          // autoRotate
           enableZoom={false} // Disable zoom
           maxPolarAngle={Math.PI / 2} // Don't go below the ground plane
           minPolarAngle={Math.PI / 2} // Don't go above the sky plane
